@@ -1,6 +1,5 @@
 import express, { Application } from 'express';
 import bodyParser from 'body-parser';
-import EntryRouter from './routers/EntryRouter';
 import cors from "cors"; 
 import pool from './dbconfig/dbconnector';
 
@@ -31,9 +30,6 @@ class Server {
     }
 
     private routerConfig() {
-        // this.app.use('/todos', todosRouter);
-        // this.app.use('/migrate', migrateRouter);
-        this.app.use('/', EntryRouter);
 
         this.app.post("/todos", async(req, res) => {
             try {
@@ -86,9 +82,6 @@ class Server {
                 console.log(error.message)
             }
         });
-
-
-
 
     }
 

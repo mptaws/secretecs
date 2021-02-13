@@ -1,18 +1,16 @@
 import React, { Fragment, useState } from 'react';
 
-// interface ITodo {
-//     todo_id: number;
-//     description: string;
-// }
-
 const EditTodo = ({ todo }) => {
     const [description, setDescription] = useState(todo.description);
 
     const updateDescription = async e => {
         e.preventDefault();
+        if (description === "") {
+            alert("Please enter a value")
+        }
         try {
             const body = { description };
-            const response = await fetch(`http://localhost:4000/todos/${todo.todo_id}`, {
+            await fetch(`http://localhost:4000/todos/${todo.todo_id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(body)
