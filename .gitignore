@@ -110,3 +110,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+#optional - remove package lock from repository
+package-lock.json
